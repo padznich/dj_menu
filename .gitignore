@@ -1,0 +1,11 @@
+# Python
+*.pyc
+
+# Virtualenv
+.venv/
+
+# PyCharm
+.idea/
+
+# Test DB
+db.sqlite3

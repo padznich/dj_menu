@@ -1,0 +1,18 @@
+{% with frames_list=k.children %}
+    <ul>
+        {% for ch in frames_list %}
+            {% if ch.children %}
+                <li><a href="{{ ch.url }}">{{ ch.name }}</a></li>
+            {% else %}
+                <li>{{ ch.name }}</li>
+            {% endif %}
+            {% if ch.name in menu_path_list %}
+                {% if ch.children %}
+                    {% with k=ch template_name="menu_tree.html" %}
+                       {% include template_name %}
+                    {% endwith %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endwith %}

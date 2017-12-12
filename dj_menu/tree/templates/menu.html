@@ -1,0 +1,18 @@
+<ul>
+    {% for k, v in main_frame.items %}
+        {% if k.name in menu_path_list %}
+
+            {% if k.children %}
+                <li><a href="{{ k.url }}">{{ k.name }}</a></li>
+                {% include "menu_tree.html" %}
+            {% endif %}
+
+        {% else %}
+            {% if k.children %}
+                <li><a href="{{ k.url }}">{{ k.name }}</a></li>
+            {% else %}
+                <li>{{ k.name }}</li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>
